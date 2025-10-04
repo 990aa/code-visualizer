@@ -9,9 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-cpp": "^6.0.3",
+    "@codemirror/lang-java": "^6.0.2",
+    "@codemirror/lang-python": "^6.2.1",
+    "@codemirror/view": "^6.38.4",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "axios": "^1.12.2",
-    "vue": "^3.5.22"
+    "vue": "^3.5.22",
+    "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
