@@ -2,7 +2,7 @@
     <div id="app">
         <div class="container">
             <div class="header">
-                <h1><i class="fas fa-cimport { java as javaLang } from '@codemirror/lang-java';de"></i> Code Visualizer</h1>
+                <h1><i class="fas fa-cimport { java as javaLang } from '@codemirror/lang-java';mport { java as javaLang } from '@codemirror/lang-java';de"></i> Code Visualizer</h1>
                 <p>Upload your code and see beautiful visualizations of algorithms and data structures</p>
             </div>
 
@@ -147,7 +147,7 @@ const extensions = computed(() => {
     const lang = selectedLanguage.value;
     const theme = oneDark;
     if (lang === 'python') return [python(), theme];
-    if (lang === 'java') return [java(), theme];
+    if (lang === 'java') return [javaLang(), theme];
     if (lang === 'cpp') return [cpp(), theme];
     return [theme];
 });
