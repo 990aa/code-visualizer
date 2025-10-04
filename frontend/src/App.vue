@@ -133,7 +133,7 @@ import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import { Codemirror } from 'vue-codemirror';
 import { python } from '@codemirror/lang-python';
-import { java from '@codemirror/lang-java';
+import { java as javaLanguage } from '@codemirror/lang-java';
 import { cpp } from '@codemirror/lang-cpp';
 import { oneDark } from '@codemirror/theme-one-dark';
 
