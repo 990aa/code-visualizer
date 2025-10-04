@@ -11,7 +11,7 @@
                 <div class="card">
                     <h2><i class="fas fa-edit"></i> Code Editor</h2>
                     <div class="controls">
-                        <select v-model="selectedLanguage" @change="loadExamples">
+                        <select v-model="selectedLanguage" @change="loadExamples" class="language-select">
                             <option value="python">Python</option>
                             <option value="java">Java</option>
                             <option value="cpp">C++</option>
@@ -40,12 +40,15 @@
                         </button>
                     </div>
                     
-                    <textarea 
-                        v-model="code" 
-                        class="code-input" 
+                    <codemirror
+                        v-model="code"
                         placeholder="Enter your code here..."
-                        spellcheck="false"
-                    ></textarea>
+                        :style="{ height: '400px' }"
+                        :autofocus="true"
+                        :indent-with-tab="true"
+                        :tab-size="2"
+                        :extensions="extensions"
+                    />
                 </div>
 
                 <!-- Visualization Section -->
@@ -124,8 +127,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
+import { Codemirror } from 'vue-codemirror';
+import { python } from '@codemirror/lang-python';
+import { java from '@codemirror/lang-java';
+import { cpp } from '@codemirror/lang-cpp';
+import { oneDark } from '@codemirror/theme-one-dark';
 
 const code = ref('');
 const selectedLanguage = ref('python');
@@ -134,6 +142,15 @@ const error = ref('');
 const visualizationData = ref(null);
 const activeTab = ref('control_flow');
 const examples = ref({});
+
+const extensions = computed(() => {
+    const lang = selectedLanguage.value;
+    const theme = oneDark;
+    if (lang === 'python') return [python(), theme];
+    if (lang === 'java') return [java(), theme];
+    if (lang === 'cpp') return [cpp(), theme];
+    return [theme];
+});
 
 const tabs = [
     { id: 'control_flow', label: 'Control Flow', icon: 'fas fa-sitemap' },
@@ -334,12 +351,13 @@ body {
     background: #cbd5e0;
 }
 
-select {
+select.language-select {
     padding: 12px;
     border: 2px solid #e2e8f0;
     border-radius: 8px;
     font-size: 14px;
     background: white;
+    color: #4a5568;
 }
 
 .visualization-area {
