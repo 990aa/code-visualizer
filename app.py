@@ -1,3 +1,4 @@
+import matplotlib
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import os
@@ -5,6 +6,8 @@ from utils.python_parser import PythonCodeParser
 from utils.java_parser import JavaCodeParser
 from utils.cpp_parser import CppCodeParser
 from utils.visualizer import CodeVisualizer
+
+matplotlib.use('Agg')
 
 app = Flask(__name__, static_folder='frontend/dist', static_url_path='/')
 CORS(app)
