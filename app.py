@@ -1,20 +1,22 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import os
-import tempfile
-import subprocess
-import sys
 from utils.python_parser import PythonCodeParser
 from utils.java_parser import JavaCodeParser
 from utils.cpp_parser import CppCodeParser
 from utils.visualizer import CodeVisualizer
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='frontend/dist', static_url_path='/')
 CORS(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
+
 
 @app.route('/analyze', methods=['POST'])
 def analyze_code():
