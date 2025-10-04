@@ -1,0 +1,10 @@
+flask
+flask-cors
+networkx
+matplotlib
+graphviz
+pygments
+astunparse
+javalang
+clang
+numpy
