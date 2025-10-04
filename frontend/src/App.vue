@@ -2,7 +2,9 @@
     <div id="app">
         <div class="container">
             <div class="header">
-                <h1><i class="fas fa-cimport { java as javaLang } from '@codemirror/lang-java';mport { java as javaLanguage } from '@codemirror/lang-java';mport { java as javaLang } from '@codemirror/lang-java';mport { java as javaLang } from '@codemirror/lang-java';de"></i> Code Visualizer</h1>
+                <h1><i class="fas fa-import { python } from '@codemirror/lang-python';
+import { java as javaLanguage } from '@codemirror/lang-java';
+import { cpp } from '@codemirror/lang-cpp';port { java as javaLang } from '@codemirror/lang-java';mport { java as javaLanguage } from '@codemirror/lang-java';mport { java as javaLang } from '@codemirror/lang-java';mport { java as javaLang } from '@codemirror/lang-java';de"></i> Code Visualizer</h1>
                 <p>Upload your code and see beautiful visualizations of algorithms and data structures</p>
             </div>
 
